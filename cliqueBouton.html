@@ -1,0 +1,119 @@
+<!--
+        auteur : Franck Gildas
+        date : 2023
+       
+-->
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Click Bouton</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <style type="text/css">
+        #main {
+            background-color: silver;
+            height: 900px;
+        }
+
+        #btnClick {
+            margin: 50px;
+        }
+
+        p {
+            margin: 50px 0;
+            font-size: 1.5em;
+        }
+
+        h1 {
+            margin-top: 1cm;
+        }
+
+        #millisecondes {
+            font-weight: 500;
+        }
+    </style>
+    <script>
+        let nombreClick = 0;
+        let premierClick = true;
+        let tempsDebut;
+        let tempsFin;
+        let nombreMilliseconde;
+
+        let tableau = [];
+
+        function cliqueMoi() {
+            if (premierClick)
+                tempsDebut = new Date();        // stocke la date et l'heure actuelles au moment du premier click
+
+            nombreClick++;
+            document.querySelector('#infoClick').innerHTML = nombreClick;
+
+            if (nombreClick === 20) {
+                tempsFin = new Date();      // stocke la date et l'heure actuelles au moment du dernier click
+
+                let button = document.getElementById('btnClick');
+                button.disabled = true;
+
+                nombreMilliseconde = tempsFin - tempsDebut;
+
+                tableau.push(nombreMilliseconde);
+
+                //let message = 'Tu as cliqué 20 fois en ' + nombreMilliseconde + ' millisecondes.';
+                let message = `Tu as clique 20 fois en ${nombreMilliseconde} millisecondes`;
+                document.querySelector('#message').innerHTML = message;
+
+                let sortie = '';
+                for (let nombre = 0; nombre < tableau.length; nombre++)
+                    sortie += '<li>Essaie ' + (nombre + 1) + ': ' + tableau[nombre] + ' millisecondes.</li>';   //À chaque itération de la boucle, j'ajoute la liste à la sortie
+
+                document.querySelector('#millisecondes').innerHTML = sortie;
+            }
+
+            premierClick = false;
+        }
+
+        function Rejouer() {
+            nombreClick = 0;
+            document.querySelector('#infoClick').innerHTML = nombreClick;
+
+            premierClick = true;
+
+            let button = document.getElementById('btnClick');
+            button.disabled = false;
+
+            document.querySelector('#message').innerHTML = null;
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col"></div>
+            <div id="main" class="col-10">
+
+                <form name="frmClique">
+                    <div class="text-center">
+                        <h1>Le clique rapide!!</h1>
+                        <p>Tu dois cliquer 20 fois le plus rapidement possible
+                        </p>
+                        <input type="button" class="btn btn-primary btn-lg" value="Clique Moi!" id="btnClick"
+                            name="btnClick" onclick="cliqueMoi()" />
+                        <br />
+                        <input type="button" value="Rejouer" class="btn btn-success btn-lg" id="btnRejouer"
+                            name="btnRejouer" onclick="Rejouer()" />
+                        <p># de cliques : <span id="infoClick">0</span></p>
+                        <h3 id="message"></h3>
+                        <ul id="millisecondes"></ul>
+                    </div>
+                </form>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Une application pour sélectionner des couleurs.</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1 class="titre">rgb(127, 127, 127)</h1>
+
+    <button class="btn btn-hasard">Couleur au hasard</button> <br><br>
+
+    <div>
+        <label for="range-red" class="color-label red-label">Red</label> <br>
+        <input type="range" name="range-red" id="range-red" max="255" onchange="changerRed(this.value)">
+    </div>
+
+    <br>
+
+    <div>
+        <label for="range-green" class="color-label green-label">Green</label> <br>
+        <input type="range" name="range-green" id="range-green" max="255" onchange="changerGreen(this.value)">
+    </div>
+
+    <br>
+
+    <div>
+        <label for="range-blue" class="color-label blue-label">Blue</label> <br>
+        <input type="range" name="range-blue" id="range-blue" max="255" onchange="changerBlue(this.value)">
+    </div>
+
+    <br>
+
+    <button class="btn btn-effet">Effet psychédélique</button>
+
+    <br><br><br>
+
+    <label for="range-vitesse" id="vitesse-label">Vitesse</label> <br>
+    <input type="range" id="range-vitesse" max="3000">
+    <p id="para-temps">Temps de changement de couleurs: <span id="temps">0</span>ms</p>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

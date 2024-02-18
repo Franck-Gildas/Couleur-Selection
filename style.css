@@ -1,0 +1,60 @@
+body {
+  background: goldenrod;
+  text-align: center;
+}
+
+.btn {
+  background: blueviolet;
+  border-radius: 3px;
+  border: 0;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 8px;
+  transition: background-color 0.15s ease;
+
+  background-color: rgb(207, 69, 45);
+}
+
+.btn-hasard:hover {
+  background: rgb(106, 34, 174);
+}
+
+.btn-hasard:active {
+  background: rgb(120, 38, 196);
+}
+
+.btn-hasard {
+  background: blueviolet;
+}
+
+.btn-effet {
+  background: dodgerblue;
+}
+
+.btn-effet:hover {
+  background: rgb(20, 96, 171);
+}
+
+.btn-effet:active {
+  background: rgb(23, 109, 195);
+}
+
+.color-label {
+  background: #fff;
+  color: #fff;
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 3px 10px;
+}
+
+#vitesse-label {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+#para-temps {
+  font-size: 26px;
+  font-weight: bold;
+}
